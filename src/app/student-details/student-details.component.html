@@ -1,0 +1,9 @@
+
+<div *ngIf="student" class="col-lg-4 col-lg-offset-4 text-center">
+  <hr>
+  <p class="text-warning">Details for {{student.ime}} {{student.prezime}}</p>
+  <p class="text-warning">Indeks: {{student.indeks}}</p>
+  <p class="text-warning">Nasoka: {{student.nasoka}}</p>
+
+  <span class="btn btn-success" [routerLink]="['/edit',student.indeks]">Edit</span>
+</div>

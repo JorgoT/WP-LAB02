@@ -1,0 +1,46 @@
+<div class="col-lg-4 col-lg-offset-4">
+  <form #form="ngForm">
+    <div class="form-group">
+      <label for="ime">Ime:</label>
+      <input type="text" id="ime" name="ime" [(ngModel)]="student.ime" #ime="ngModel" class="form-control" required
+             placeholder="Ime" minlength="2" maxlength="30">
+      <div class="text-danger" *ngIf="ime.invalid && (ime.touched || ime.dirty)">
+        Imeto mora da bide megju 2 i 30 karakteri
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="prezime">Prezime:</label>
+      <input type="text" id="prezime" name="prezime" [(ngModel)]="student.prezime" #prezime="ngModel"
+             class="form-control" required
+             placeholder="Prezime" minlength="2" maxlength="30">
+      <div class="text-danger" *ngIf="prezime.invalid && (prezime.touched || prezime.dirty)">
+        Prezimeto mora da bide megju 2 i 30 karakteri
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="indeks">Indeks:</label>
+      <input type="number" id="indeks" name="indeks" [(ngModel)]="student.indeks" #indeks="ngModel" class="form-control"
+             required
+             placeholder="Indeks" [pattern]="number" min="100000" max="999999">
+      <div class="text-danger" *ngIf="indeks.invalid && (indeks.touched || indeks.dirty)">Indeksot more da bide 6 cifren
+        broj
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="nasoka">Nasoka:</label>
+      <input type="text" id="nasoka" name="nasoka" [(ngModel)]="student.nasoka" #nasoka="ngModel" class="form-control"
+             required
+             placeholder="Nasoka" [pattern]="nasokaRegex">
+    </div>
+    <div class="text-danger"
+         *ngIf="nasoka.invalid && (nasoka.touched || nasoka.dirty)">
+      Dozvoleni nasoki se KNI, MT i PET
+    </div>
+
+    <button [routerLink]="['/list']" type="submit" (click)="onSubmit()" class="btn btn-success" [disabled]="!form.valid">Save</button>
+  </form>
+
+</div>

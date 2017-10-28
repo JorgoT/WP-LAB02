@@ -1,0 +1,9 @@
+<div class="col-lg-4 col-lg-offset-4">
+  <p class="text-center"><strong>Student List</strong></p>
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let student of students"><a [routerLink]="['/details',student.indeks]">{{student.ime}} {{student.prezime}}</a>
+    </li>
+  </ul>
+
+  <span class="btn btn-success" [routerLink]="['/new']">New Student</span>
+</div>
